@@ -1,0 +1,18 @@
+import "react"
+    useState
+import @glas.platform.react.useStore
+
+export default Counter({ share }) =>
+    let [count, setCount] = useStore(Number, share, 0)
+    return
+        <div/>
+            "Hello Ion Parcel Larger"
+            <div/>
+                <button/>
+                    onClick: () => setCount(count + 1)
+                    "Click Me"
+                if count > 0
+                    <p>Clicked {count} times</p>
+            <div/>
+                for i in 0...count
+                    <div key={ i }>{ i }</div>

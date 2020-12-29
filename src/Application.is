@@ -1,0 +1,9 @@
+import .Counter
+
+export default Application() =>
+    return
+        <div style={{ display: "flex", flexDirection: "row" }} />
+            <Counter share="1" />
+            <Counter share="1" />
+            // <Counter share="2" />
+            // <Counter share="2" />
