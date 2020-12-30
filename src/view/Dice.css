@@ -9,7 +9,7 @@
     font-size: large;
     justify-content: center;
     align-items: center;
-    border-radius: calc(var(--margin) / 2);
+    border-radius: var(--margin);
     background: white;
     border: solid 1px black;
     width: var(--width);
