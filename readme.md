@@ -1,5 +1,7 @@
 # IonScript Html Game Starter
 
+This game sample demonstrates using an Entity Component System with React to create an html based game. This sample does not use canvas or 3d, just html elements.
+
 ## Setup
 
     yarn install
