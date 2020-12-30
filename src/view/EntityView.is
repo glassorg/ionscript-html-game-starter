@@ -1,0 +1,48 @@
+import @glas.platform.react.useStore
+import "./Entity.css"
+import ..model.Card
+import .CardView
+import ..model.Dice
+    randomDice
+import .DiceView
+
+let debugCenter = false
+
+export default EntityView({ k }) =>
+    let [entity, patchEntity] = useStore(k)
+    if entity is Null
+        return
+            <div/>
+                "Deleted: " + k
+    let { visible } = entity
+    return
+        <div key={k.toString()} />
+            className:
+                +
+                    "Entity"
+                    if entity.selected
+                        " Entity_selected"
+            style: {}
+                left: visible.x + "%"
+                top: visible.y - (entity.selected && entity.card && visible.rotation == 0 ? 2 : 0) + "%"
+                rotate: visible.rotation + "deg"
+                zIndex: visible.z
+                "--elevation": visible.elevation
+            onClick: e ->
+                //  patching null deletes the entity
+                if e.shiftKey
+                    patchEntity(null)
+                else if entity.card
+                    patchEntity({ selected: !entity.selected })
+                else if entity.dice
+                    patchEntity({ dice: randomDice() })
+            if entity.card
+                <CardView rank={entity.card.rank} suit={entity.card.suit} />
+                    onPointerEnter: ->
+                        patchEntity({ visible: { elevation: 2 } })
+                    onPointerLeave: ->
+                        patchEntity({ visible: { elevation: 1 } })
+            if entity.dice
+                <DiceView value={entity.dice} />
+            if debugCenter
+                <div className="Entity_Center" />

@@ -1,0 +1,7 @@
+import .getRandomInteger
+
+type Dice = Integer & >= 1 & <= 100
+
+export let randomDice = (max = 6) -> getRandomInteger(max) + 1
+
+export default Dice

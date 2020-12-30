@@ -1,0 +1,10 @@
+import .Rank
+    randomRank
+import .Suit
+    randomSuit
+
+export let randomCard = -> new Card({ rank: randomRank(), suit: randomSuit() })
+
+export default data class Card
+    var rank: Rank
+    var suit: Suit

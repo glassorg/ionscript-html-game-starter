@@ -1,0 +1,45 @@
+import "./ControlPanel.css"
+import @glas.platform.react.useStore
+    store
+import @glas.platform.react.useQuery
+import .CardView
+import .EntityView
+import ..model.Application.*
+import ..model.Card
+import ..model.Entity
+
+export default ControlPanel({ entities }) =>
+    return
+        <div className="ControlPanel"/>
+            for count in [1, 4]
+                <div/>
+                    <button/>
+                        onClick: (e) ->
+                            for i in 0..count
+                                Application.addRandomCard()
+                        "Add " + count + " card" + (count == 1 ? "" : "s")
+                    <button/>
+                        onClick: (e) ->
+                            for i in 0..count
+                                Application.addRandomDice()
+                        "Add " + count + " dice" + (count == 1 ? "" : "s")
+            <div/>
+                <button/>
+                    onClick: (e) ->
+                        Application.rotateEntities(entities, 0)
+                    "Rotate 0"
+            <div/>
+                <button/>
+                    onClick: (e) ->
+                        Application.sortVisibleEntities(entities)
+                    "Sort"
+            <div/>
+                <button/>
+                    onClick: (e) ->
+                        Application.randomizeEntities(entities)
+                    "Randomize"
+            <div/>
+                <button/>
+                    onClick: (e) ->
+                        Application.deleteEntities(entities)
+                    "Clear"

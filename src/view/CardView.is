@@ -1,0 +1,12 @@
+import "./Card.css"
+import @glas.platform.react.useStore
+import ..model.Rank
+    rankText
+import ..model.Suit
+    suitInfo
+
+export default CardView({ rank, suit, ...props }) =>
+    let { text, color } = suitInfo[suit]
+    return
+        <div className="Card" style={{ color }} {...props} />
+            rankText[rank] + " " + text

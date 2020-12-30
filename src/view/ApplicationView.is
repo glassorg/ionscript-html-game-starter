@@ -1,0 +1,18 @@
+import "./Application.css"
+import @glas.platform.react.useStore
+import @glas.platform.react.useQuery
+//  model
+import ..model.Application.*
+import ..model.Entity
+//  views
+import .EntityView
+import .ControlPanel
+
+export default ApplicationView() =>
+    let visibleEntities = useQuery(Application.visibleEntityQuery)
+    return
+        <div style={{ display: "flex", flexDirection: "row" }} />
+            <div style={{ zIndex: 0 }}/>
+                for key in visibleEntities
+                    <EntityView key={key} k={key} />
+            <ControlPanel entities={visibleEntities} />

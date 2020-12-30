@@ -1,0 +1,70 @@
+import @glas.platform.data.Key
+import @glas.platform.react.useStore
+    store
+import .Entity
+import .Visible
+    randomVisible
+import .Dice
+    randomDice
+import .Card
+    randomCard
+
+export let visibleEntityQuery = Key.create(Entity, { where: { visible: { "!=": null } } })
+
+var id = 0
+let nextId = -> (id++).toString()
+
+export let addEntity = (props) ->
+    let key = Key.create(Entity, nextId())
+    store.patch(key, new Entity(props))
+
+export let addRandomCard = ->
+    addEntity({ card: randomCard(), visible: randomVisible() })
+
+export let addRandomDice = ->
+    addEntity({ dice: randomDice(), visible: randomVisible() })
+
+let compareEntities = ([keyA, a], [keyB, b]) ->
+    if a.dice isnt Null && b.dice isnt Null
+        return a.dice - b.dice
+    if a.card is Null
+        return 1
+    if b.card is Null
+        return -1
+    return a.card.suit - b.card.suit || a.card.rank - b.card.rank
+
+export let rotateEntities = (entities: Array<IdentityKey>, rotation: Number = 0) ->
+    for entityKey in entities
+        store.patch(entityKey, { visible: { rotation } })
+
+export let randomizeEntities = (entities: Array<IdentityKey>) ->
+    for entityKey in entities
+        store.patch(entityKey, { visible: randomVisible() })
+
+export let deleteEntities = (entities: Array<IdentityKey>) ->
+    for entityKey in entities
+        store.patch(entityKey, null)
+
+export let sortVisibleEntities = (entityKeys: Array<IdentityKey>) ->
+    let entities = entityKeys.map()
+        key -> [ key, store.peek(key) ]
+    entities.sort(compareEntities)
+    // now iterate and order.
+    var buffer = 10
+    var x = buffer
+    var y = 30
+    var z = 0
+    var dx = 5
+    var dy = 10
+    for [key, entity] in entities
+        store.patch(key, { visible: { x, y, z: z++, rotation: 0 } })
+        x += dx
+        if x >= 100 - buffer
+            x = buffer
+            y += dy
+
+// start out with some cards and dice
+for i in 0..4
+    addRandomCard()
+for i in 0..4
+    addRandomDice()

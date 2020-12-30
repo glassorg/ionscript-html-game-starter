@@ -1,0 +1,14 @@
+
+.ControlPanel {
+    position: absolute;
+    border: solid 1px blue;
+    padding: var(--margin);
+}
+.ControlPanel > * {
+    display: flex;
+    flex-direction: row;
+}
+.ControlPanel > * > * {
+    margin: var(--margin);
+    flex: 1 1 auto;
+}

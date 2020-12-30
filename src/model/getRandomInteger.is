@@ -1,0 +1,2 @@
+
+export default getRandomInteger(max: Number) -> Math.floor(Math.random() * Math.floor(max))

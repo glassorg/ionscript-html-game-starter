@@ -1,0 +1,33 @@
+.Entity {
+    --elevation: 1;
+    --shadow-color: #252525;
+    position: absolute;
+    transition: all 200ms;
+    /* background: orange;
+    width: 20px;
+    height: 20px; */
+    filter: drop-shadow(
+        calc(var(--elevation) * 2px)
+        calc(var(--elevation) * 2px)
+        calc(var(--elevation) * 3px)
+        var(--shadow-color)
+    );
+    cursor: default;
+}
+
+.Entity_selected {
+    --shadow-color: #cc2525;
+    filter: drop-shadow(2px 2px 8px var(--shadow-color));
+}
+
+.Entity_Center {
+    --size: 10px;
+    display: block;
+    position: absolute;
+    left: calc(var(--size) / -2);
+    top: calc(var(--size) / -2);
+    width: var(--size);
+    height: var(--size);
+    margin: 0px;
+    background: purple;
+}

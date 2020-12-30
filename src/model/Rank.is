@@ -1,0 +1,19 @@
+import .getRandomInteger
+
+let min = 1
+let max = 13
+
+type Rank = Integer & >= min & <= max
+
+export let rankText = []
+    "null"
+    "A"
+    for i in 2...10
+        i.toString()
+    "J"
+    "Q"
+    "K"
+
+export let randomRank = -> min + getRandomInteger(max - min)
+
+export default Rank

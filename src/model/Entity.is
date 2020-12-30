@@ -1,0 +1,10 @@
+import .Card
+import .Visible
+import .Dice
+
+export default data class Entity
+    var card: Card | Null = null
+    var dice: Dice | Null = null
+    var visible: Visible | Null = null
+    var selected: Boolean = false
+

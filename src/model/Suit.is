@@ -1,0 +1,18 @@
+import .getRandomInteger
+
+type Suit = Integer & >= 0 & < 4
+
+export data class SuitInfo
+    var name: String
+    var text: String
+    var color: "red" | "black"
+
+export let suitInfo = []
+    new SuitInfo({ name: "Spades", text: "♠", color: "black" })
+    new SuitInfo({ name: "Hearts", text: "♥", color: "red" })
+    new SuitInfo({ name: "Diamonds", text: "♦", color: "red" })
+    new SuitInfo({ name: "Clubs", text: "♣", color: "black" })
+
+export let randomSuit = -> getRandomInteger(4)
+
+export default Suit

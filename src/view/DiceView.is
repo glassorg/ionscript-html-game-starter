@@ -1,0 +1,6 @@
+import "./Dice.css"
+
+export default DiceView({ value, ...props }) =>
+    return
+        <div className="Dice" {...props} />
+            value.toString()

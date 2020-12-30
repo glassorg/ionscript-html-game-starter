@@ -1,0 +1,19 @@
+
+.Card {
+    --width: 60px;
+    --height: 80px;
+    left: calc(var(--width) / -2);
+    top: calc(var(--height) / -2);
+    position: absolute;
+    display: inline-flex;
+    font-size: large;
+    border-radius: calc(var(--margin) / 2);
+    background: white;
+    border: solid 1px black;
+    width: var(--width);
+    height: var(--height);
+    padding: var(--margin);
+}
+.Entity_selected .Card {
+    background: #DDCEEE;
+}

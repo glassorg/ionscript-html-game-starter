@@ -1,0 +1,10 @@
+:root {
+    --margin: 2px;
+    background: beige;
+    font-family: sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    user-select: none;
+}

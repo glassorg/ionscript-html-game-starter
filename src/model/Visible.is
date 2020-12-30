@@ -1,0 +1,15 @@
+
+export let randomVisible = (width = 100, height = 100) ->
+    let x = Math.random() * width
+    let y = Math.random() * height
+    let scale = 1.0
+    let rotation = Math.random() * 360
+    return new Visible({ x, y, scale, rotation })
+
+export default data class Visible
+    var x: Number = 0
+    var y: Number = 0
+    var z: Number = 0
+    var scale: Number = 1.0
+    var rotation: Number & >= 0 & <= 360 = 0
+    var elevation: Number = 1.0

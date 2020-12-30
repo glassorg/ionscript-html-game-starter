@@ -2,6 +2,6 @@ import "react"
     as React
 import "react-dom"
     render
-import .Application
+import .view.ApplicationView
 
-render(<Application />, document.getElementById("root"))
+render(<ApplicationView />, document.getElementById("root"))
